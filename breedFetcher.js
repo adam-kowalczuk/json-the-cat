@@ -5,24 +5,21 @@ const fetchBreedDescription = function(breedName, callback) {
   request(url, (error, response, body) => {
 
     if (error) {
-      // console.log("error: ", error);
-      callback(error, null) 
+      callback(error, null);
       return;
     }
   
     const data = JSON.parse(body);
     const breed = data[0];
     if (!breed) {
-      // console.log("Breed not found");
       callback("Breed not found");
       return;
     }
   
-    // console.log(breed.description);
-      callback(null, breed.description);
+    callback(null, breed.description);
   });
 };
 
 module.exports = {
   fetchBreedDescription
-}
+};
